@@ -5,7 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem de Produtos</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header, main {
+            padding: 20px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: #fff;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        button.editar {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        button.remover {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+        button.adicionar {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,23 +76,26 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Preço</th>
+                    <th>Categoria</th>
+                    <th>Descrição</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Exemplo de Produto -->
                 <tr>
                     <td>1</td>
                     <td>Produto Exemplo</td>
                     <td>R$ 100,00</td>
+                    <td>Eletrônicos</td>
+                    <td>Produto de alta qualidade</td>
                     <td>
-                        <button onclick="editarProduto()">Editar</button>
-                        <button onclick="removerProduto()">Remover</button>
+                        <button class="editar">Editar</button>
+                        <button class="remover">Remover</button>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <button onclick="adicionarProduto()">Adicionar Produto</button>
+        <button class="adicionar">Adicionar Produto</button>
     </main>
     <script src="js/app.js"></script>
 </body>
