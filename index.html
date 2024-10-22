@@ -1,0 +1,48 @@
+Introdução:
+Este webservice REST foi desenvolvido como parte de um sistema de loja online, 
+com o objetivo de gerenciar produtos, categorias, usuários, pedidos e itens de pedidos. 
+
+O webservice segue os princípios de um sistema RESTful, 
+utilizando os métodos HTTP como GET para leitura de dados, POST para inserção de novos registros, 
+e PUT para atualização de dados. 
+Este serviço está estruturado para ser consumido por clientes externos que queiram realizar operações CRUD 
+(Criar, Ler, Atualizar e Excluir) nas diferentes entidades da loja online.
+
+<br>
+<br>
+
+Lista de Rotas:<br>
+
+    /produto: Manipulação de produtos.
+        GET /produto: Lista todos os produtos.
+        POST /produto: Adiciona um novo produto. Parâmetros: nome, marca, descricao, preco, quantidade.
+        PUT /produto: Edita um produto existente. Parâmetros: id_produto, nome, marca, descricao, preco, quantidade.
+        <br> /usuario: Manipulação de usuários.
+        POST /usuario: Adiciona um novo usuário. Parâmetros: nome, email, senha.
+        PUT /usuario: Edita um usuário existente. Parâmetros: id, nome, email, senha.
+        <br>/categoria: Manipulação de categorias.
+        GET /categoria: Lista todas as categorias.
+        POST /categoria: Adiciona uma nova categoria. Parâmetros: nome, descricao.
+        PUT /categoria: Edita uma categoria existente. Parâmetros: id_categoria, nome, descricao.
+        <br>/pedido: Manipulação de pedidos.
+        GET /pedido: Lista todos os pedidos.
+        POST /pedido: Adiciona um novo pedido. Parâmetros: data, valor, id_cliente.
+        PUT /pedido: Edita um pedido existente. Parâmetros: id_pedido, data, valor, id_cliente.
+        <br>/itempedido: Manipulação dos itens de pedido.
+        GET /itempedido: Lista todos os itens de pedido.
+        POST /itempedido: Adiciona um novo item de pedido. Parâmetros: quantidade, id_pedido, id_produto.
+        PUT /itempedido: Edita um item de pedido existente. Parâmetros: id_item_pedido, quantidade, id_pedido, id_produto.
+        <br>/produtocategoria: Relacionamento entre produtos e categorias.
+        GET /produtocategoria: Lista todos os relacionamentos entre produtos e categorias.
+        POST /produtocategoria: Adiciona uma nova relação produto-categoria. Parâmetros: id_produto, id_categoria.
+        PUT /produtocategoria: Edita uma relação produto-categoria existente. Parâmetros: id_produto, id_categoria.
+        <br>
+        <br>
+
+Observações:
+Sobre a questão de usuário, não sabemos como diferenciar o gestor do cliente. Então criamos o crud do usuario geral.
+Ao testar no postman, o pedido não foi possível validar pois precisaria do id_cliente. 
+Sobre o der, tivemos que acrescentar uma coluna a mais em produto (quantidade), portanto o der está desatualizado.
+Como nessa 2° parte era só sobre o back, não corrigimos o der, mas faremos nas próximas etapas.
+
+        

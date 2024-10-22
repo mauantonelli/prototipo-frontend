@@ -1,7 +1,7 @@
 <?php
 
 require_once(__DIR__ . '/../configs/utils.php');
-require_once(__DIR__ . '/../model/Produto.php');
+require_once(__DIR__ . '/../model/Usuario.php');
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
@@ -11,8 +11,8 @@ $data = handleJSONInput();
 
 if (method('GET')) {
     try {
-        $produtos = Produto::listar();
-        output(200, $produtos);
+        $usuarios = Usuario::listar();
+        output(200, $usuarios);
     } catch (Exception $e) {
         output(500, ["msg" => $e->getMessage()]);
     }
@@ -20,11 +20,11 @@ if (method('GET')) {
 
 if (method('POST')) {
     try {
-        if (!valid($data, ['nome', 'marca', 'descricao', 'preco', 'quantidade'])) {
+        if (!valid($data, ['nome', 'email', 'senha'])) {
             throw new Exception("Dados incompletos", 400);
         }
-        Produto::insert($data['nome'], $data['marca'], $data['descricao'], $data['preco'], $data['quantidade']);
-        output(200, ["msg" => "Produto cadastrado com sucesso!"]);
+        Usuario::insert($data['nome'], $data['email'], $data['senha']);
+        output(200, ["msg" => "Usuário cadastrado com sucesso!"]);
     } catch (Exception $e) {
         output($e->getCode(), ["msg" => $e->getMessage()]);
     }
@@ -32,11 +32,11 @@ if (method('POST')) {
 
 if (method('PUT')) {
     try {
-        if (!valid($data, ['id', 'nome', 'marca', 'descricao', 'preco', 'quantidade'])) {
+        if (!valid($data, ['id', 'nome', 'email', 'senha'])) {
             throw new Exception("Dados incompletos", 400);
         }
-        Produto::editar($data['id'], $data['nome'], $data['marca'], $data['descricao'], $data['preco'], $data['quantidade']);
-        output(200, ["msg" => "Produto editado com sucesso!"]);
+        Usuario::editar($data['id'], $data['nome'], $data['email'], $data['senha']);
+        output(200, ["msg" => "Usuário editado com sucesso!"]);
     } catch (Exception $e) {
         output($e->getCode(), ["msg" => $e->getMessage()]);
     }

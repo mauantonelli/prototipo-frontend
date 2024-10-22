@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/10/2024 às 20:28
+-- Tempo de geração: 22/10/2024 às 01:23
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -32,6 +32,13 @@ CREATE TABLE `categoria` (
   `nome` varchar(100) NOT NULL,
   `descricao` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `categoria`
+--
+
+INSERT INTO `categoria` (`id_categoria`, `nome`, `descricao`) VALUES
+(1, 'Camiseta masculina', 'Camiseta masculina');
 
 -- --------------------------------------------------------
 
@@ -101,8 +108,16 @@ CREATE TABLE `produto` (
   `nome` varchar(100) NOT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `descricao` text DEFAULT NULL,
-  `preco` decimal(10,2) NOT NULL
+  `preco` decimal(10,2) NOT NULL,
+  `quantidade` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `produto`
+--
+
+INSERT INTO `produto` (`id_produto`, `nome`, `marca`, `descricao`, `preco`, `quantidade`) VALUES
+(1, 'Camiseta', 'Nike', 'Camise logo grande tamanho P', 59.90, 10);
 
 -- --------------------------------------------------------
 
@@ -114,6 +129,13 @@ CREATE TABLE `produtocategoria` (
   `id_produto` int(11) NOT NULL,
   `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `produtocategoria`
+--
+
+INSERT INTO `produtocategoria` (`id_produto`, `id_categoria`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -127,6 +149,13 @@ CREATE TABLE `usuario` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`) VALUES
+(1, 'Mateus', 'mateus@mateus.com', '123456');
 
 --
 -- Índices para tabelas despejadas
@@ -200,7 +229,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `itempedido`
@@ -212,19 +241,19 @@ ALTER TABLE `itempedido`
 -- AUTO_INCREMENT de tabela `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para tabelas despejadas
